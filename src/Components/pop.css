@@ -1,0 +1,246 @@
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden; /* disable scroll on overlay */
+}
+
+.popup-box {
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px 30px;
+  width: 100%;
+  max-width: 700px;
+  /* Remove max-height and overflow to prevent scroll */
+  position: relative;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+
+
+/* Progress Bar */
+.progress-bar {
+  height: 18px;
+  background: #333;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.progress-bar::before {
+  content: "";
+  display: block;
+  width: 80%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    #e60023,
+    #e60023 10px,
+    #ff4d6d 10px,
+    #ff4d6d 20px
+  );
+  animation: slashing 2s linear infinite;
+}
+
+@keyframes slashing {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 40px 0;
+  }
+}
+
+/* Logo */
+.popup-box {
+  text-align: center;
+}
+
+.popup-logo {
+  width: 40%;
+  height: 100%;
+  margin: 20px auto;
+  display: block;
+}
+
+/* Close Button */
+.popup-close {
+  position: absolute;
+  top: 0px;
+  right: 20px;
+  font-size: 48px;
+  color: #999;
+  cursor: pointer;
+  margin-top: -20px;
+}
+
+/* Inputs */
+.popup-box input,
+.popup-box select,
+.popup-box textarea {
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  padding: 14px 16px;
+  margin: 10px 0;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Phone Input Row */
+.phone-input-container {
+  display: flex;
+  gap: 10px;
+}
+
+.phone-input-container select {
+  width: 40%;
+}
+
+.phone-input-container input {
+  width: 60%;
+}
+
+/* CTA Button */
+.cta-button {
+  background: #e60023;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  padding: 16px;
+  border: none;
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #b3001b;
+}
+
+/* Open Button */
+.open-btn {
+  background: #e60023;
+  color: white;
+  font-weight: 600;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Responsive Styling */
+@media(max-width: 600px) {
+  .popup-box {
+    width: 95%;
+    padding: 25px 15px;
+  }
+
+  .phone-input-container select {
+    width: 25%;
+    padding: 13px;
+  }
+
+  .phone-input-container input {
+    width: 72%;
+  }
+
+  .popup-logo {
+    width: 55%;
+    height: 100%;
+  }
+
+  .cta-button {
+    font-size: 14px;
+  }
+
+  .popup-close {
+    position: absolute;
+    top: -15px;
+    right: 1px;
+    font-size: 48px;
+    color: #fff;
+    cursor: pointer;
+    margin-top: -30px;
+  }
+}
+
+@media(max-width: 600px) {
+  .popup-close {
+    top: 10px;      /* inside the box */
+    right: 10px;
+    font-size: 32px;
+    color: #999;    /* visible on white background */
+    margin-top: 0;  /* remove negative margin */
+  }
+}
+
+.popup-close {
+  position: absolute;
+  top: 40px;
+  right: 10px;
+  font-size: 20px;
+  background: #000;   /* red background */
+  color: #fff;           /* white X icon */
+  border-radius: 50%;    /* round shape */
+  width: 32px;           /* fixed size */
+  height: 32px;
+  display: flex;         /* center the X inside */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+}
+.popup-close:hover {
+  background: #b3001b;   /* darker red on hover */
+}
+@media(max-width: 600px) {
+  .popup-close {
+    top: 10px;
+    right: 10px;
+  }
+}
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Default: Desktop – No Scroll */
+.popup-overlay {
+  overflow: hidden; /* no scroll desktop */
+}
+
+.popup-box {
+  max-height: none; /* allow full height without scroll */
+  overflow: hidden; /* no scroll inside box */
+}
+
+/* Mobile Only: Enable Scroll */
+@media (max-width: 600px) {
+  .popup-overlay {
+    overflow-y: auto; /* scroll on mobile */
+  }
+
+  .popup-box {
+    max-height: 90vh; /* fit mobile screen */
+    overflow-y: auto; /* scroll inside popup if needed */
+  }
+}
+
+input::placeholder, textarea::placeholder {
+    opacity: 1;
+    color: #333 !important;
+}

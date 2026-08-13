@@ -1,0 +1,22 @@
+@font-face {
+  font-family: 'AlbertSans-ExtraBold';
+  src: url('../src/fonts/AlbertSans-ExtraBold.ttf') format('truetype');
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'AlbertSans-ExtraBold';
+}
+@font-face {
+  font-family: 'AlbertSans-Bold';
+  src: url('../src/fonts/AlbertSans-Bold.ttf') format('truetype');
+}
+button {
+  font-family: 'AlbertSans-Bold'!important;
+}
+@font-face {
+  font-family: 'AlbertSans-Light';
+  src: url('../src/fonts/AlbertSans-Light.ttf') format('truetype');
+}
+p {
+  font-family: 'AlbertSans-Light';
+}
