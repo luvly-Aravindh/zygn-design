@@ -166,6 +166,30 @@ const Popup = ({ show, onClose }) => {
     return valid;
   };
 
+  const validateWorkEmail = (value) => {
+    const domain = value.trim().toLowerCase().split("@")[1];
+    const freeEmailDomains = new Set([
+      "gmail.com",
+      "googlemail.com",
+      "yahoo.com",
+      "yahoo.co.in",
+      "outlook.com",
+      "hotmail.com",
+      "live.com",
+      "icloud.com",
+      "aol.com",
+      "proton.me",
+      "protonmail.com",
+    ]);
+
+    if (freeEmailDomains.has(domain)) {
+      setError("Please use your work email address. Personal email addresses are not accepted.");
+      return false;
+    }
+
+    return true;
+  };
+
   const handlePhoneChange = (e) => {
     const value = e.target.value.replace(/\D/g, "");
     setPhone(value);
@@ -189,6 +213,10 @@ const Popup = ({ show, onClose }) => {
     setSubmitSuccess(false);
 
     if (!validatePhone(phone)) {
+      return;
+    }
+
+    if (!validateWorkEmail(formData.email)) {
       return;
     }
 
