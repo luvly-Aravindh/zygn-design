@@ -66,27 +66,30 @@ export default function ZygnHero({ isPopupOpen = false, openPopup }) {
 </div>
 
 
-<div className="mt-6 text-center px-0 sm:px-0">
+<div className="mt-6 text-center px-0">
 
   {/* Line 1 */}
   <motion.h1
     initial={{ opacity: 0, y: 40 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.7 }}
-    className="mx-auto max-w-[22rem] text-center text-[28px] leading-[1.05] font-extrabold sm:max-w-none sm:text-[28px] md:text-7xl"
+    className="mx-auto max-w-[22rem] text-center text-[25px] leading-[1.05] font-extrabold sm:max-w-none sm:text-[28px] md:text-7xl"
   >
     GROW YOUR INTERIOR
   </motion.h1>
 
-  {/* Line 2: DESIGN–BUILD + pill */}
+  {/* Line 2: DESIGN-BUILD + pill */}
   <div className="mt-2 flex flex-col items-center justify-center gap-2 sm:mt-0 sm:flex-row sm:gap-4">
+
     <motion.h1
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.1 }}
-      className="mx-auto max-w-[22rem] text-center text-[24px] leading-[1.05] font-extrabold sm:max-w-none sm:text-[28px] md:text-7xl"
+      className="mx-auto sm:mx-0 max-w-[20rem] text-center text-[21px] leading-[1.05] font-extrabold sm:max-w-none sm:text-[28px] md:text-7xl"
     >
-      <span className="text-red-500">DESIGN-BUILD FIRM WITHOUT </span>
+      <span className="text-red-500">
+        DESIGN-BUILD FIRM WITHOUT
+      </span>
     </motion.h1>
 
     {/* Purple pill */}
@@ -101,6 +104,7 @@ export default function ZygnHero({ isPopupOpen = false, openPopup }) {
         India-First End-to-End Workflow
       </span>
     </motion.div>
+
   </div>
 
   {/* Line 3 */}
@@ -108,40 +112,41 @@ export default function ZygnHero({ isPopupOpen = false, openPopup }) {
     initial={{ opacity: 0, y: 40 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay: 0.15 }}
-    className="mx-auto mt-3 max-w-[22rem] text-center text-[23px] leading-[1.08] font-extrabold sm:mt-0 sm:max-w-none sm:text-[28px] md:text-7xl"
+    className="mx-auto mt-3 max-w-[22rem] text-center text-[20px] leading-[1.08] font-extrabold sm:mt-0 sm:max-w-none sm:text-[28px] md:text-7xl"
   >
-     ADDING MORE CHAOS, PEOPLE, SPREADSHEETS,
+    ADDING MORE CHAOS, PEOPLE, SPREADSHEETS,
   </motion.h1>
 
- {/* Line 4 */}
-<div className="mt-3 grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center justify-center gap-2 sm:mt-0 sm:flex sm:gap-4">
+  {/* Line 4 */}
+  <div className="mt-3 grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center justify-center gap-1 sm:mt-0 sm:flex sm:gap-4">
 
-  {/* Red pill */}
-  <div className="rounded-lg bg-red-600 px-1 py-2 text-[11px] font-bold text-center sm:rounded-full sm:px-3 sm:py-2 sm:text-sm">
-    ₹50–400 CR
-    <span className="block text-[11px] sm:text-[10px] font-normal leading-tight">
-      Project Values Managed
-    </span>
+    {/* Red pill */}
+    <div className="rounded-lg bg-red-600 px-1 py-2 text-[10px] font-bold text-center sm:rounded-full sm:px-3 sm:py-2 sm:text-sm">
+      ₹50–400 CR
+      <span className="block text-[8px] sm:text-[10px] font-normal leading-tight">
+        Project Values Managed
+      </span>
+    </div>
+
+    {/* Daily Follow-ups */}
+    <motion.h1
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.2 }}
+      className="whitespace-nowrap text-[15px] leading-tight font-extrabold text-center sm:text-[28px] md:text-7xl"
+    >
+      DAILY FOLLOW-UPS
+    </motion.h1>
+
+    {/* Green pill */}
+    <div className="rounded-lg bg-green-500 px-1 py-2 text-[10px] font-bold text-center sm:rounded-full sm:px-3 sm:py-2 sm:text-sm">
+      300 USERS
+      <span className="block text-[8px] sm:text-[10px] font-normal leading-tight">
+        35% Increase in Productivity
+      </span>
+    </div>
+
   </div>
-
-  <motion.h1
-    initial={{ opacity: 0, y: 40 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ delay: 0.2 }}
-    className="text-[19px] leading-tight font-extrabold text-center sm:text-[28px] md:text-7xl"
-  >
-       DAILY FOLLOW-UPS
-  </motion.h1>
-
-  {/* Green pill */}
-  <div className="rounded-lg bg-green-500 px-1 py-2 text-[11px] font-bold text-center sm:rounded-full sm:px-3 sm:py-2 sm:text-sm">
-    300 USERS
-    <span className="block text-[11px] sm:text-[10px] font-normal leading-tight">
-      35% Increase in Productivity
-    </span>
-  </div>
-
-</div>
 
 </div>
 

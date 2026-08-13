@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import boatcraftLogo from "../assets/form-logo.png";
 import "../Components/pop.css";
+import { submitLead } from "../lib/submitLead";
 
 const Popup = ({ show, onClose }) => {
   const [msg, setMsg] = useState("");
@@ -123,13 +124,6 @@ const Popup = ({ show, onClose }) => {
     { name: "ZW", code: "+263", flag: "https://flagcdn.com/w20/zw.png" },
   ];
 
-  // useEffect(() => {
-  //   fetch("https://getnos.io/zygn/php/index.php")
-  //     .then((response) => response.json())
-  //     .then((data) => setMsg(data.message))
-  //     .catch((error) => console.error("Error fetching data:", error));
-  // }, []);
-
   useEffect(() => {
     return () => {
       if (cooldownTimerRef.current) {
@@ -181,6 +175,8 @@ const Popup = ({ show, onClose }) => {
   // Handle changes for all input fields
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    setMsg("");
+    setSubmitSuccess(false);
     setFormData(prev => ({
       ...prev,
       [name]: value
@@ -189,56 +185,47 @@ const Popup = ({ show, onClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setMsg("");
+    setSubmitSuccess(false);
 
     if (!validatePhone(phone)) {
       return;
     }
 
-    startSubmitCooldown();
     setIsSubmitting(true);
 
     const submissionData = {
-      full_name: formData.full_name,
-      studio_name: formData.studio_name,
-      email: formData.email,
+      name: formData.full_name.trim(),
+      full_name: formData.full_name.trim(),
+      studio_name: formData.studio_name.trim(),
+      email: formData.email.trim(),
       country_code: countryCode,
+      phone: `${countryCode}${phone}`,
       mobile: phone,
       monthly_projects: formData.monthly_projects,
-      project_details: formData.project_details
+      project_details: formData.project_details.trim(),
+      subject: "Design - Zygn Interior Design & Design",
+      page: window.location.href,
+      source: "Zygn - Interior Design & Design - Build",
     };
 
     try {
-      const response = await fetch("/zygn/php/index.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(submissionData)
-      });
+      const data = await submitLead(submissionData);
 
-      const data = await response.json();
-
-      if (response.ok && data.status) {
-
-  setSubmitSuccess(true);
-  setMsg(data.message || "Form submitted successfully!");
-
-  // ✅ Enable button BEFORE redirect
-  setIsSubmitting(false);
-
-  const redirectUrl = data.redirect || "/zygn/php/index.php";
-  setTimeout(() => {
-    window.location.href = redirectUrl;
-  }, 1000);
-
-} else {
-  setMsg(data.message || "Submission failed.");
-  setIsSubmitting(false); // ✅ also enable on failure
-}
+      setSubmitSuccess(true);
+      setMsg(
+        data.duplicate
+          ? "Thanks — we already have your recent request."
+          : "Thanks! Your demo request has been submitted."
+      );
+      startSubmitCooldown();
+      setTimeout(() => {
+        window.location.href = "https://tidycal.com/marketingptgtech/30min-free-zygn-demo";
+      }, 900);
 
     } catch (error) {
       console.error("Error submitting form:", error);
-      setMsg("Network error. Please try again.");
+      setMsg(error.message || "We couldn't submit your request. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
