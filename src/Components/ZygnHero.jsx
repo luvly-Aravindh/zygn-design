@@ -87,21 +87,13 @@ export default function ZygnHero({ isPopupOpen = false, openPopup }) {
     initial={{ opacity: 0, y: 40 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.7 }}
-    className="hidden sm:block mx-auto text-center leading-[1.05] font-extrabold sm:text-[28px] md:text-7xl"
+    className="hidden sm:block mx-auto w-full max-w-5xl px-4 text-center leading-[1.05] font-extrabold sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl"
   >
-    <span className="hidden sm:block lg:hidden">
-      <span className="block">GROW YOUR INTERIOR</span>
-      <span className="block text-red-500">DESIGN‑BUILD FIRM WITHOUT</span>
-      <span className="block">ADDING MORE CHAOS, PEOPLE,</span>
-      <span className="block">SPREADSHEETS,</span>
-      <span className="block">DAILY FOLLOW‑UPS</span>
-    </span>
-    <span className="hidden lg:block">
-      <span className="block whitespace-nowrap">GROW YOUR INTERIOR</span>
-      <span className="block whitespace-nowrap text-red-500">DESIGN‑BUILD FIRM WITHOUT</span>
-      <span className="block whitespace-nowrap">ADDING MORE CHAOS, PEOPLE, SPREADSHEETS,</span>
-      <span className="block whitespace-nowrap">DAILY FOLLOW‑UPS</span>
-    </span>
+    <span className="block">GROW YOUR INTERIOR</span>
+    <span className="block text-red-500">DESIGN‑BUILD FIRM WITHOUT</span>
+    <span className="block">ADDING MORE CHAOS, PEOPLE,</span>
+    <span className="block">SPREADSHEETS,</span>
+    <span className="block">DAILY FOLLOW‑UPS</span>
   </motion.h1>
 
   {/* Stat pills — mobile grid, desktop row */}
