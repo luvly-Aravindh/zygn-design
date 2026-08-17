@@ -68,85 +68,68 @@ export default function ZygnHero({ isPopupOpen = false, openPopup }) {
 
 <div className="mt-6 text-center px-0">
 
-  {/* Line 1 */}
+  {/* Mobile headline */}
   <motion.h1
     initial={{ opacity: 0, y: 40 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.7 }}
-    className="mx-auto max-w-[22rem] text-center text-[25px] leading-[1.05] font-extrabold sm:max-w-none sm:text-[28px] md:text-7xl"
+    className="sm:hidden mx-auto text-center text-[1.15rem] leading-[1.05] font-extrabold"
   >
-    GROW YOUR INTERIOR
+    <span className="block whitespace-nowrap">GROW YOUR INTERIOR</span>
+    <span className="block whitespace-nowrap text-red-500">DESIGN‑BUILD FIRM WITHOUT</span>
+    <span className="block whitespace-nowrap">ADDING MORE CHAOS, PEOPLE,</span>
+    <span className="block whitespace-nowrap">SPREADSHEETS,</span>
+    <span className="block whitespace-nowrap">DAILY FOLLOW‑UPS</span>
   </motion.h1>
 
-  {/* Line 2: DESIGN-BUILD + pill */}
-  <div className="mt-2 flex flex-col items-center justify-center gap-2 sm:mt-0 sm:flex-row sm:gap-4">
-
-    <motion.h1
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.1 }}
-      className="mx-auto sm:mx-0 max-w-[20rem] text-center text-[21px] leading-[1.05] font-extrabold sm:max-w-none sm:text-[28px] md:text-7xl"
-    >
-      <span className="text-red-500">
-        DESIGN-BUILD FIRM WITHOUT
-      </span>
-    </motion.h1>
-
-    {/* Purple pill */}
-    <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.2 }}
-      className="rounded-lg bg-purple-600 px-3 py-2 text-xs font-bold text-white text-center sm:rounded-full sm:px-4 sm:text-sm"
-    >
-      REAL-TIME CONTROL
-      <span className="block text-[9px] font-normal leading-tight sm:text-[10px]">
-        India-First End-to-End Workflow
-      </span>
-    </motion.div>
-
-  </div>
-
-  {/* Line 3 */}
+  {/* Tablet + desktop headline */}
   <motion.h1
     initial={{ opacity: 0, y: 40 }}
     animate={{ opacity: 1, y: 0 }}
-    transition={{ delay: 0.15 }}
-    className="mx-auto mt-3 max-w-[22rem] text-center text-[20px] leading-[1.08] font-extrabold sm:mt-0 sm:max-w-none sm:text-[28px] md:text-7xl"
+    transition={{ duration: 0.7 }}
+    className="hidden sm:block mx-auto text-center leading-[1.05] font-extrabold sm:text-[28px] md:text-7xl"
   >
-    ADDING MORE CHAOS, PEOPLE, SPREADSHEETS,
+    <span className="hidden sm:block lg:hidden">
+      <span className="block">GROW YOUR INTERIOR</span>
+      <span className="block text-red-500">DESIGN‑BUILD FIRM WITHOUT</span>
+      <span className="block">ADDING MORE CHAOS, PEOPLE,</span>
+      <span className="block">SPREADSHEETS,</span>
+      <span className="block">DAILY FOLLOW‑UPS</span>
+    </span>
+    <span className="hidden lg:block">
+      <span className="block whitespace-nowrap">GROW YOUR INTERIOR</span>
+      <span className="block whitespace-nowrap text-red-500">DESIGN‑BUILD FIRM WITHOUT</span>
+      <span className="block whitespace-nowrap">ADDING MORE CHAOS, PEOPLE, SPREADSHEETS,</span>
+      <span className="block whitespace-nowrap">DAILY FOLLOW‑UPS</span>
+    </span>
   </motion.h1>
 
-  {/* Line 4 */}
-  <div className="mt-3 grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center justify-center gap-1 sm:mt-0 sm:flex sm:gap-4">
-
-    {/* Red pill */}
-    <div className="rounded-lg bg-red-600 px-1 py-2 text-[10px] font-bold text-center sm:rounded-full sm:px-3 sm:py-2 sm:text-sm">
+  {/* Stat pills — mobile grid, desktop row */}
+  <motion.div
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.2 }}
+    className="mt-5 sm:mt-7 grid grid-cols-2 sm:flex sm:flex-row sm:flex-wrap items-center justify-items-center justify-center gap-1.5 sm:gap-3 md:gap-4 w-full max-w-[16.5rem] sm:max-w-none mx-auto"
+  >
+    <div className="rounded-full bg-purple-600 px-2.5 py-1.5 sm:px-5 sm:py-2.5 text-[11px] sm:text-sm font-bold text-white text-center">
+      India‑First
+      <span className="block text-[9px] sm:text-xs font-normal leading-tight opacity-90">
+        End‑to‑End Workflow
+      </span>
+    </div>
+    <div className="rounded-full bg-red-600 px-2.5 py-1.5 sm:px-5 sm:py-2.5 text-[11px] sm:text-sm font-bold text-white text-center">
       ₹50–400 CR
-      <span className="block text-[8px] sm:text-[10px] font-normal leading-tight">
+      <span className="block text-[9px] sm:text-xs font-normal leading-tight opacity-90">
         Project Values Managed
       </span>
     </div>
-
-    {/* Daily Follow-ups */}
-    <motion.h1
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.2 }}
-      className="whitespace-nowrap text-[15px] leading-tight font-extrabold text-center sm:text-[28px] md:text-7xl"
-    >
-      DAILY FOLLOW-UPS
-    </motion.h1>
-
-    {/* Green pill */}
-    <div className="rounded-lg bg-green-500 px-1 py-2 text-[10px] font-bold text-center sm:rounded-full sm:px-3 sm:py-2 sm:text-sm">
+    <div className="col-span-2 justify-self-center rounded-full bg-green-500 px-3 py-1.5 sm:px-5 sm:py-2.5 text-[11px] sm:text-sm font-bold text-white text-center sm:col-span-1">
       300 USERS
-      <span className="block text-[8px] sm:text-[10px] font-normal leading-tight">
+      <span className="block text-[9px] sm:text-xs font-normal leading-tight opacity-90">
         35% Increase in Productivity
       </span>
     </div>
-
-  </div>
+  </motion.div>
 
 </div>
 
